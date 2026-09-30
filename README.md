@@ -82,3 +82,7 @@ npm run deploy
 ```
 
 Faz o build e envia a pasta `dist` para o Cloudflare Workers (`wrangler.jsonc`).
+
+## Desenvolvimento com agentes de IA
+
+O site foi construído com um agente de código (Claude Code) guiado por especificação. As regras combinadas com o cliente ficam em `docs/specs/2026-09-29-iron-gym-design.md` (cada assunto aparece uma vez só, só informação confirmada, direção visual, estrutura seção por seção) e valem para qualquer mudança futura. O fluxo é: registrar a regra na spec, deixar o agente implementar, e conferir com `npm run build` e no navegador antes de publicar.
