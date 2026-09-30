@@ -1,0 +1,9 @@
+node_modules
+dist
+*.log
+qa-output
+.env
+.wrangler
+
+# vídeo-fonte da abertura (87 MB): os trechos prontos ficam em public/assets/video
+source-assets/originais/conheca-iron-gym.mp4

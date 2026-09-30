@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>Iron Gym | Academia de musculação, lutas e balé no Parque Vitória</title>
+    <meta name="description" content="Musculação, MMA, Muay Thai, Jiu-Jitsu, Judô e Balé no Parque Vitória. Aberto até 22h30. Fale com a Iron Gym pelo WhatsApp e agende sua visita." />
+    <link rel="canonical" href="%SITE%/" />
+    <meta name="theme-color" content="#070808" />
+    <meta name="color-scheme" content="dark" />
+    <meta name="format-detection" content="telephone=no" />
+
+    <link rel="icon" type="image/png" sizes="32x32" href="%BASE_URL%favicon-32.png" />
+    <link rel="icon" type="image/png" sizes="48x48" href="%BASE_URL%favicon-48.png" />
+    <link rel="icon" type="image/png" sizes="192x192" href="%BASE_URL%icon-192.png" />
+    <link rel="apple-touch-icon" href="%BASE_URL%apple-touch-icon.png" />
+    <link rel="preload" as="image" href="%BASE_URL%assets/video/abertura-vertical.webp" media="(orientation: portrait)" />
+    <link rel="preload" as="image" href="%BASE_URL%assets/video/abertura-horizontal.webp" media="(orientation: landscape)" />
+    <link rel="preconnect" href="https://i.ytimg.com" crossorigin />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="pt_BR" />
+    <meta property="og:site_name" content="Iron Gym" />
+    <meta property="og:title" content="Iron Gym | Academia de musculação, lutas e balé" />
+    <meta property="og:description" content="Seu limite é só o começo. Musculação, MMA, Muay Thai, Jiu-Jitsu, Judô e Balé no Parque Vitória. Aberto até 22h30." />
+    <meta property="og:url" content="%SITE%/" />
+    <meta property="og:image" content="%SITE%/og-image.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Logo da Iron Gym ao lado de anilhas vermelhas e pretas no suporte" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <style>
+      html { background: #070808; color-scheme: dark; }
+      body { margin: 0; }
+      /* iPhone em modo de pouca energia: sem o botão de play do sistema por cima do vídeo da abertura */
+      #video-abertura::-webkit-media-controls-start-playback-button { display: none !important; -webkit-appearance: none; }
+    </style>
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "ExerciseGym",
+        "name": "Iron Gym",
+        "slogan": "O lugar onde a sua evolução acontece todos os dias",
+        "description": "Academia de musculação, lutas (MMA, Muay Thai, Jiu-Jitsu e Judô) e balé no Parque Vitória.",
+        "url": "%SITE%/",
+        "image": "%SITE%/og-image.jpg",
+        "logo": "%SITE%/icon-512.png",
+        "telephone": "+55 98 98160-4258",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Via Coletora, 7000 - Quadra 209, nº 4, Parque Vitória",
+          "addressLocality": "São José de Ribamar",
+          "addressRegion": "MA",
+          "postalCode": "65110-000",
+          "addressCountry": "BR"
+        },
+        "geo": { "@type": "GeoCoordinates", "latitude": -2.5144153, "longitude": -44.2098404 },
+        "hasMap": "https://maps.google.com/?cid=18259818040780579456",
+        "sameAs": ["https://www.instagram.com/irongymslz/", "https://www.youtube.com/@IronGymslz"],
+        "amenityFeature": [
+          { "@type": "LocationFeatureSpecification", "name": "Musculação", "value": true },
+          { "@type": "LocationFeatureSpecification", "name": "MMA", "value": true },
+          { "@type": "LocationFeatureSpecification", "name": "Muay Thai", "value": true },
+          { "@type": "LocationFeatureSpecification", "name": "Jiu-Jitsu", "value": true },
+          { "@type": "LocationFeatureSpecification", "name": "Judô", "value": true },
+          { "@type": "LocationFeatureSpecification", "name": "Balé", "value": true }
+        ]
+      }
+    </script>
+  </head>
+  <body>
+    <!-- vídeo da abertura fora do React: começa a baixar e a tocar enquanto o resto do site ainda carrega.
+         Fica atrás da abertura (z-index -1); o React só cuida do som e de pausar fora da tela. -->
+    <video id="video-abertura" autoplay muted loop playsinline webkit-playsinline preload="auto" disablepictureinpicture disableremoteplayback aria-hidden="true" style="position:absolute;top:0;left:0;width:100%;height:max(100svh,36rem);object-fit:cover;z-index:-1;background:#070808">
+      <source media="(orientation: portrait)" src="%BASE_URL%assets/video/abertura-vertical.mp4" type="video/mp4" />
+      <source src="%BASE_URL%assets/video/abertura-horizontal.mp4" type="video/mp4" />
+    </video>
+    <script>
+      (function (v) {
+        v.poster = matchMedia("(orientation: portrait)").matches ? "%BASE_URL%assets/video/abertura-vertical.webp" : "%BASE_URL%assets/video/abertura-horizontal.webp";
+        v.muted = true;
+        var p = v.play();
+        if (p) p.catch(function () {});
+      })(document.getElementById("video-abertura"));
+    </script>
+    <div id="root"></div>
+    <noscript>
+      <p style="color:#f2f3f3;font:17px/1.6 system-ui,sans-serif;padding:24px;max-width:40rem">
+        Iron Gym, academia de musculação, lutas e balé. Via Coletora, 7000, Quadra 209, nº 4, Parque Vitória.
+        WhatsApp: <a style="color:#f2f3f3" href="https://wa.me/5598981604258">(98) 98160-4258</a>.
+      </p>
+    </noscript>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
